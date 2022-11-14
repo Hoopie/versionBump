@@ -1,0 +1,32 @@
+name: Version Bump
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  #schedule: 
+  #    - cron: '0 3 * * 1,2,3,4,5' #every weekday @3am (with 0=Sunday)
+        # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule 
+        # POSIX Syntax: https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07    
+    
+env:
+  DOTNET_NOLOGO: true #removes logo and telemetry message from first run of dotnet cli
+    
+    
+jobs:
+    Version-Bump:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+          
+        - name: dotnet.run
+          working-directory: src
+          run: dotnet run
+
+        - name: Raise PR
+          # https://docs.github.com/en/actions/using-workflows/using-github-cli-in-workflows
+          # https://cli.github.com/manual/gh_pr_create
+          run: gh pr create --fill --base main 
+          
+          
+          
