@@ -18,11 +18,12 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v3
-          
-        - run: |
-          git config --local user.name "TechHelp"
-          git config --local user.email "techhelp@starrez.com"
-
+        
+        - name: set commit author
+          run: |
+            git config --local user.name "TechHelp"
+            git config --local user.email "techhelp@starrez.com"
+        
         - name: dotnet.run
           working-directory: src
           run: dotnet run
