@@ -12,7 +12,6 @@ on:
 env:
   DOTNET_NOLOGO: true #removes logo and telemetry message from first run of dotnet cli
     
-    
 jobs:
     Version-Bump:
       runs-on: ubuntu-latest
@@ -32,7 +31,6 @@ jobs:
         - name: Raise PR
           # https://docs.github.com/en/actions/using-workflows/using-github-cli-in-workflows
           # https://cli.github.com/manual/gh_pr_create
-          run: gh pr create --fill --base main 
-          
-          
-          
+          run: gh pr create --fill --base main
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
