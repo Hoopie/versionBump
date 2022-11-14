@@ -100,7 +100,7 @@ await git
 
 		 currentDirectory = currentDirectory.Parent;
 		 depth++;
-	 } while (depth < maxDepth);
+	 } while (currentDirectory != null && depth < maxDepth);
 
 	 throw new InvalidOperationException("root directory not found");
  }
