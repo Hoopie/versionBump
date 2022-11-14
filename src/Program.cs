@@ -80,7 +80,7 @@ await git
 
 //push
 await git
-	.WithArguments("push")
+	.WithArguments("push -u")
 	.ExecuteBufferedAsync();
 
 
