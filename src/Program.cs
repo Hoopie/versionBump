@@ -74,7 +74,7 @@ versionFileXml.Save(versionFileInfo.FullName);
 
 Console.WriteLine("Commit changes");
 await git
-	.WithArguments("commit -a -m \"bump version\" --no-verify") //https://git-scm.com/docs/git-commit#_options
+	.WithArguments("commit -a -m \"bump version\"") //https://git-scm.com/docs/git-commit#_options
 	.ExecuteBufferedAsync();
 
 
